@@ -39,24 +39,17 @@ def intro():
   print("Want to know the best PART(y)? You get to pick what we're celebrating!  You can choose between...")
   print("")
 
-def ghosts():
-  print("")
-  print("  __/ \__________")
-  print(" (:o   __________")
-  print("    \ / ")
-  print("")
-  time.sleep(.5)
-  print("      __/ \__________")
-  print("     (:)   __________")
-  print("        \ / ")
-  print("")
-  time.sleep(.5)
-  print("          __/ \__________")
-  print("         (:x   __________")
-  print("            \ / ")
-  time.sleep(.5)
-  print("")
+  def ghosts():
+    mouths = ["o", ")", "x"]
 
+    for index, mouth in enumerate(mouths):
+      spaces = " " * index * 4 
+      print(f"{spaces}  __/ \__________")
+      print(f"{spaces} (:{mouth}   __________")
+      print(f"{spaces}    \ / ")
+      print("")
+      time.sleep(.5)
+  
 ### To print Dictionary key:value pairs, use a for loop to traverse through the key:value pairs, and use print statement to print them. dict.items() returns the iterator for the key:value pairs and returns key, value during each iteration. -https://pythonexamples.org/python-print-dictionary/#3 ### 
 def print_costume_list(office_costumes):
   for i, (key,value) in enumerate(office_costumes.items()):
