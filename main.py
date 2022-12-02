@@ -2,7 +2,7 @@
 
 #Do you love the hit TV show 'The Office?' Have you ever wondered what it would be like to join one of their classic office parties?  Well, the PPC (Party Planning Committee) is excited to bring the party to you!  You can choose from attending an office Christmas party, a Halloween party, and/or a birthday party.  If you're  not feeling like partying, you can always pick to sell paper too. Enjoy!
 
-import time 
+import time
 
 ##Introduction and gathering the user's name as a global variable:
 print("You have just been transfered to the Scranton Branch of Dunder Mifflin!")
@@ -39,16 +39,16 @@ def intro():
   print("Want to know the best PART(y)? You get to pick what we're celebrating!  You can choose between...")
   print("")
 
-  def ghosts():
-    mouths = ["o", ")", "x"]
+def ghosts():
+  mouths = ["o", ")", "x"]
 
-    for index, mouth in enumerate(mouths):
-      spaces = " " * index * 4 
-      print(f"{spaces}  __/ \__________")
-      print(f"{spaces} (:{mouth}   __________")
-      print(f"{spaces}    \ / ")
-      print("")
-      time.sleep(.5)
+  for index, mouth in enumerate(mouths):
+    spaces = " " * index * 4 
+    print(f"{spaces}  __/ \__________")
+    print(f"{spaces} (:{mouth}   __________")
+    print(f"{spaces}    \ / ")
+    print("")
+    time.sleep(.5) 
   
 ### To print Dictionary key:value pairs, use a for loop to traverse through the key:value pairs, and use print statement to print them. dict.items() returns the iterator for the key:value pairs and returns key, value during each iteration. -https://pythonexamples.org/python-print-dictionary/#3 ### 
 def print_costume_list(office_costumes):
@@ -137,7 +137,7 @@ def user_choice():
       print("")
 
       user_costume = input("What's your costume going to be for the contest? ")
-      office_costumes[name] = user_costume
+      office_costumes[name.title()] = user_costume
 
       delayed_dots(5)
       print("Here are the costumes in the contest: ")
@@ -146,17 +146,20 @@ def user_choice():
       print("")
 
       while True: 
-        contest_winner = input("Out of the following contestants, who do you think has the best costume?  (Respond with a contestant's name--and you CANNOT vote for yourself!): ")
-        contest_winner = contest_winner.title()
+        user_vote = input("Out of the following contestants, who do you think has the best costume?  (Respond with a contestant's name: ")
+        user_vote = user_vote.title()
         print("")
     
-        if contest_winner == "Oscar":
+        if user_vote.title() == "Oscar":
           print("The office staff agrees with you, and Oscar won the contest!")
           print("")
           break
-      
-        elif (contest_winner == "Gabe") or (contest_winner == "Michael") or (contest_winner == "Kelly") or (contest_winner == "Angela") or (contest_winner == "Jim") or (contest_winner == "Pam"):
-          print(f"The votes are in, and while {contest_winner} did have a great costume, Oscar won the costume contest and the Scranton coupon book!")
+
+        elif user_vote.title() in office_costumes:
+          msg_name = user_vote
+          if user_vote == name:
+              msg_name = "you"
+          print(f"The votes are in, and while {msg_name} did have a great costume, Oscar won the costume contest and the Scranton coupon book!")
           print("")
           break
       
@@ -261,6 +264,7 @@ def play_game():
   user_choice()
 
 play_game()
+
 
 
 
